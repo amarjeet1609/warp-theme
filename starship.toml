@@ -1,0 +1,193 @@
+# ~/.config/starship.toml
+
+add_newline = false
+command_timeout = 1000
+format = """$os$username$hostname$kubernetes$directory$git_branch$git_status$time"""
+
+# Drop ugly default prompt characters
+[character]
+error_symbol = ''
+success_symbol = ''
+
+# ---
+
+[os]
+disabled = false
+format = '[$symbol](bold white) '
+
+[os.symbols]
+Arch = '󰣇'
+Macos = '󰀵'
+Ubuntu = ''
+Windows = ' '
+
+# ---y
+
+# Shows the username
+[username]
+disabled = false
+format = '[$user]($style) '
+show_always = true
+style_root = 'black bold'
+style_user = 'white bold'
+
+# Shows the hostname
+[hostname]
+disabled = false
+format = 'on [$hostname](bold yellow) '
+ssh_only = false
+
+# Shows current directory
+[directory]
+format = 'at [$path]($style)[$read_only]($read_only_style) '
+home_symbol = '󰋜 ~'
+read_only = '  '
+read_only_style = '197'
+truncation_length = 1
+truncation_symbol = '…/'
+
+# Shows current git branch
+[git_branch]
+format = 'via [$symbol$branch]($style)'
+symbol = ' '
+# truncation_length = 4
+style = 'bold green'
+truncation_symbol = '…/'
+
+# Shows current git status
+[git_status]
+ahead = '⇡${count}'
+behind = '⇣${count}'
+conflicted = '🏳'
+# deleted = ' '
+deleted = "🗑 $count "
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+# diverged = " $count "
+format = '[$all_status$ahead_behind](red) '
+modified = "  $count "
+renamed = "襁 $count "
+# renamed = " $count "
+staged = '[++\($count\)](green)'
+stashed = " $count "
+# stashed = "📦 $count "
+style = 'bold green'
+untracked = " $count "
+# untracked = "🤷 ‍$count "
+up_to_date = ''
+
+# Shows kubernetes context and namespace
+[kubernetes]
+disabled = false
+format = 'via [󱃾 $context\($namespace\)](bold purple) '
+
+# ---
+
+# [vagrant]
+# disabled = true
+
+# [docker_context]
+# disabled = true
+
+# [helm]
+# disabled = true
+
+# [python]
+# disabled = true
+
+# [nodejs]
+# disabled = true
+
+# [ruby]
+# disabled = true
+
+# [terraform]
+# disabled = true
+
+[nodejs]
+#symbol = " "
+#style = "bg:#212736"
+#format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+format = "via [ Node.js $version](bold green) "
+
+[docker_context]
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+format = "via [$symbol$context]($style) "
+only_with_files = true
+style = "blue bold"
+symbol = " "
+
+[aws]
+symbol = "  "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[haskell]
+symbol = "λ "
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[package]
+#symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+
+[time]
+disabled = false 
+format = " $time($style)\n " 
+style = "bright-white" 
+time_format = "%T" # Hour:Minute:Second Format
